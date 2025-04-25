@@ -210,7 +210,8 @@ const Toolbox = ({ openReplacementPanel }) => {
   <input
     id="image-upload"
     type="file"
-    accept="image/*"
+    // accept="image/*"
+    accept=".jpg,.jpeg,.png"
     onChange={e =>
       workbenchProps.handleImageUpload(workbenchProps.sectionId, e)
     }

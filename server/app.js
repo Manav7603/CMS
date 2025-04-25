@@ -6,7 +6,7 @@ import { logger, errorLogger } from "./utils/logger.js";
 import userRoutes from "./routes/userRoutes.js";
 import pdfRoutes from "./controllers/pdfDownload.js";
 import layoutRoutes from "./routes/layoutRoutes.js";  
-
+import chatRoutes from './routes/chat.js';
 dotenv.config();
 
 const app = express();
@@ -43,5 +43,5 @@ mongoose.connect(MONGO_URL, {
 app.use("/api/users", userRoutes);
 app.use("/api/pdf", pdfRoutes);
 app.use("/api", layoutRoutes);
-
+app.use('/api/bot', chatRoutes);
 export default app;

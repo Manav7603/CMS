@@ -7,6 +7,15 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  
+  // server: {
+  //   proxy: {
+  //     // Proxy API requests to your Express backend
+  //     '/api': {
+  //       target: 'http://localhost:8000', // Your Express server port
+  //       changeOrigin: true,
+  //       secure: false,
+  //     }
+  //   }
+  // }
 });
 

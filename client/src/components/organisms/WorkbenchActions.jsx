@@ -81,9 +81,9 @@ const WorkbenchActions = () => {
     }, 1000);
   };
 
-  const formatUserDisplay = (userID) => {
+  const formatUserDisplay = (userName) => {
     // First try to extract initials if there are spaces
-    const initials = userID
+    const initials = userName
       .split(' ')
       .map(word => word[0])
       .join('')
@@ -91,7 +91,7 @@ const WorkbenchActions = () => {
 
     // If no spaces found, take first 3 chars and add ellipsis
     if (initials.length <= 1) {
-      return userID.slice(0, 3) + '...';
+      return userName.slice(0, 3) + '...';
     }
 
     return initials;
@@ -109,7 +109,7 @@ const WorkbenchActions = () => {
       />
 
       {/* User Info Display */}
-      <Tooltip title={`Logged in as: ${workbenchProps.userID}`}>
+      <Tooltip title={`Logged in as: ${workbenchProps.userName}`}>
         <Typography
           variant="subtitle1"
           sx={{
@@ -139,7 +139,7 @@ const WorkbenchActions = () => {
           >
             You:
           </span>
-          {formatUserDisplay(workbenchProps.userID)}
+          {formatUserDisplay(workbenchProps.userName)}
         </Typography>
       </Tooltip>
 
@@ -150,8 +150,8 @@ const WorkbenchActions = () => {
               key={editor.id}
               title={
                 editor.id === workbenchProps.userID
-                  ? `You (${editor.id})`
-                  : `Editor: ${editor.id}`
+                  ? `You (${editor.name})`
+                  : `Editor: ${editor.name}`
               }
             >
               <OnlineBadge

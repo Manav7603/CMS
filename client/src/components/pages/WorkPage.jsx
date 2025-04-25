@@ -5,6 +5,7 @@ import Toolbox from '../organisms/Toolbox';
 import { WorkbenchContext } from '../../context/WorkbenchContext';
 import { useNavigate, useParams } from "react-router-dom";
 import LoadLayoutAndSection from '../organisms/LoadLayoutAndSection';
+import ChatBot from './Chatbot.jsx';
 
 
 const WorkPage = () => {
@@ -133,6 +134,10 @@ const WorkPage = () => {
                     <WorkbenchActions />
                     <WorkbenchCanvas />
                 </div>
+                <div className="workbench">
+    {/* Your existing WorkBench code */}
+    <ChatBot />
+  </div>
                 <Toolbox openReplacementPanel = {openReplacementPanel} />
                 {showReplacementPanel && (
                     <LoadLayoutAndSection

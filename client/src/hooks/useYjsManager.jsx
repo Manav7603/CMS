@@ -114,7 +114,7 @@ const layoutDocsManager = (() => {
   };
 })();
 
-const useYjsManager = ({ layoutid, cellWidth, cellHeight, gutterWidth, userID, userProfilePic, setSections }) => {   
+const useYjsManager = ({ layoutid, cellWidth, cellHeight, gutterWidth, userID, userProfilePic, setSections,userName }) => {   
   // State for local updates and initialization
   const [isLocalUpdate, setIsLocalUpdate] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -210,6 +210,8 @@ const useYjsManager = ({ layoutid, cellWidth, cellHeight, gutterWidth, userID, u
       console.log(`WebSocket provider sydfdsfasdasadaddasdnced:a=============== ${wsProvider.synced}`);
       console.log("dkm5");
       console.log("dkm5");
+      console.log("dkm5");
+      
       if (wsProvider.synced) {
         handleSync(true);
       }
@@ -264,7 +266,7 @@ const useYjsManager = ({ layoutid, cellWidth, cellHeight, gutterWidth, userID, u
       user: {
         id: userID,
         profilePic: userProfilePic,
-        name: userID,
+        name: userName,
         layoutId: layoutId // Include layoutId to track which layout the user is editing
       }
     });

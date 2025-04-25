@@ -23,12 +23,13 @@ const useWorkbench = () => {
   const [rows, setRows] = useState(12);
   const [gutterWidth, setGutterWidth] = useState(10);
   const [userID, setUserID] = useState("60d21b4667d0d8992e610c85");
+  const [userName, setUserName] = useState("Default");
   const token = localStorage.getItem("token");
   const [userProfilePic, setUserProfilePic] = useState("");
   const [CurrentLayout, setCurrentLayout] = useState("");
   const [isDeleting, setIsDeleting] = useState(null);
   const [sections, setSections] = useState([]);
-  const [sectionId, setSectionId] = useState('');
+  const [sectionId, setSectionId] = useState(null);
   const [city, setCity] = useState("Pune");
   const [dueDate, setDueDate] = useState(() => {
     const today = new Date().toISOString().split("T")[0]; return today;
@@ -84,6 +85,7 @@ const useWorkbench = () => {
       });
 
       setUserID(response.data.uid); // Set the user data
+      setUserName(response.data.name);
       setUserProfilePic(response.data.photoURL);
       console.log("User photoURL:", response.data.photoURL);
       console.log("User UID:", response.data.uid);
@@ -158,7 +160,8 @@ const useWorkbench = () => {
     gutterWidth,
     userID,
     userProfilePic,
-    setSections
+    setSections,
+    userName
   });
 
   //----------------------------------------------------------
@@ -273,7 +276,7 @@ const useWorkbench = () => {
       const bestPosition = findBestPositionForItem(newItem, section.items, section.sizeInfo);
 
       if (!bestPosition) {
-        // alert('No space available in section!');
+        alert('No space available in section!');
         console.log("No space available in section!");
         return section;
       }
@@ -303,7 +306,7 @@ const useWorkbench = () => {
 
     const position = findBestPositionForBox(newSection, sections, columns, rows);
     if (!position) {
-      // alert('No space available for new section');
+      alert('No space available for new section');
       console.log("No space available in section!");
       return;
     }
@@ -454,6 +457,7 @@ const useWorkbench = () => {
 
       const data = await response.json();
       console.log('Layout saved successfully', data);
+      alert('Layout saved successfully');
       if (!e) {
         console.log(data.layout._id);
         localStorage.setItem('layoutid', data.layout._id);
@@ -1694,6 +1698,8 @@ const useWorkbench = () => {
     snapLines,
     userID,
     setUserID,
+    setUserName,
+    userName,
     userProfilePic,
     activeEditors,
     positionDisplay,
