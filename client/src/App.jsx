@@ -15,7 +15,7 @@ import Navbar from './components/atoms/navbar/NavBar';
 import ErrorBoundary from './components/pages/ErrorBoundry';
 import { WorkbenchProvider } from './context/WorkbenchContext';
 import WorkBenchWrapper from './components/pages/WorkBenchWrapper';
-
+import PremiumPage from './components/pages/PremiumPage'; 
 function App() {
   return (
     <ErrorBoundary>
@@ -77,6 +77,13 @@ function App() {
                    </ErrorBoundary>
                  </ProtectedRoute>
                }/>
+               <Route path='/premium' element={
+                  <ProtectedRoute>
+                    <ErrorBoundary>
+                      <PremiumPage />
+                    </ErrorBoundary>
+                  </ProtectedRoute>
+                }/>
                <Route path='/history' element={
                  <ProtectedRoute>
                    <ErrorBoundary>
@@ -88,6 +95,7 @@ function App() {
            </Router>
          </AuthProvider>
        </ErrorBoundary>
+       
      );
 
     }

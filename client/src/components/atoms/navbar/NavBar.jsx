@@ -126,12 +126,14 @@ const Navbar = () => {
           ) : null
         ) : (
           <>
+                      <CustomButton onClick={() => navigate("/premium")}>Premium</CustomButton>
             <CustomButton onClick={() => navigate("/home")}>Home</CustomButton>
             <CustomButton onClick={() => navigate("/mylayout")}>My Layouts</CustomButton>
             <CustomButton onClick={handleWorkbenchClick}>
               {isOnLayoutPage ? "New Design" : "Workbench"}
             </CustomButton>
             <CustomButton onClick={() => navigate("/history")}>History</CustomButton>
+
              {/* MUI Dark mode toggle */}
              <Tooltip title="Toggle dark mode">
               <IconButton onClick={toggleDarkMode} color="inherit" sx={{ marginRight : '20px'}} >

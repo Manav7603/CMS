@@ -7,6 +7,7 @@ import userRoutes from "./routes/userRoutes.js";
 import pdfRoutes from "./controllers/pdfDownload.js";
 import layoutRoutes from "./routes/layoutRoutes.js";  
 import chatRoutes from './routes/chat.js';
+import paymentRoutes from './routes/paymentRoutes.js'; // Add this line
 dotenv.config();
 
 const app = express();
@@ -44,4 +45,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/pdf", pdfRoutes);
 app.use("/api", layoutRoutes);
 app.use('/api/bot', chatRoutes);
+app.use('/api/payments', paymentRoutes); // Add this line
+
 export default app;

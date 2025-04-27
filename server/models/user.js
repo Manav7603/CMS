@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema({
   photoURL: { type: Buffer }, // Profile Picture
   role: { type: String, default: "user" }, 
   createdAt: { type: Date, default: Date.now },
+  // Add premium-related fields
+  isPremium: { type: Boolean, default: false },
+  premiumExpiresAt: { type: Date, default: null }
 });
 
 export default mongoose.model("User", userSchema);
