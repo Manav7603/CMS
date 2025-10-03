@@ -211,6 +211,8 @@ const useYjsManager = ({ layoutid, cellWidth, cellHeight, gutterWidth, userID, u
       console.log("dkm5");
       console.log("dkm5");
       console.log("dkm5");
+      console.log("dkm5");
+      console.log("dkm5");
       
       if (wsProvider.synced) {
         handleSync(true);
